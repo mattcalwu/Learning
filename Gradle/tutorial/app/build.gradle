@@ -8,6 +8,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'maven-publish'
 }
 
 repositories {
@@ -37,7 +38,35 @@ application {
     mainClass = 'tutorial.App'
 }
 
+// This is the maven publish plugin
+publishing {
+    publications {
+        create("maven", MavenPublication) {
+            groupId = "com.gradle.tutorial"
+            artifactId = "tutorial"
+            version = "1.0"
+
+            from(components["java"])
+        }
+    }
+}
+
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+// This is a custom task registered
+tasks.register("hello") {
+    doLast {
+        println('Hello!')
+    }
+}
+
+// Below is another custom task, but this depends on the task right above it
+tasks.register("greet") {
+    doLast {
+        println('How are you?')
+    }
+    dependsOn("hello")
 }
