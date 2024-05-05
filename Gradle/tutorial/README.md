@@ -99,9 +99,38 @@ If there is no label, then task was executed by Gradle
 
 ## Part 6: Enabling the Gradle Build Cache
 
+The build cache stores previous build results. 
 
+### How to turn it on
 
+```
+echo 'org.gradle.caching=true' >> gradle.properties
+```
 
+Or
+
+```
+printf "\norg.gradle.caching=true\n" >> gradle.properties
+```
+
+Note:
+
+```
+>> appends to a file while > rewrites it entirely
+```
+
+Gradle caches are found at (on Mac):
+~/.gradle/caches/
+
+There is also a remote build cache. This is to share commonly built task outputs
+across remote builds to improve build times.
+
+Build output is first checked in local and then remote. If not in local then
+download from remote. 
+
+## Part 7: Using Reference Materials 
+
+[References](https://docs.gradle.org/current/userguide/part7_gradle_refs.html#part7_begin)
 
 
 
