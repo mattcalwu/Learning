@@ -1,10 +1,12 @@
-class NullSafety {
+class KotlinNullSafety {
 
     /**
-     *
+     * This is the main function that I call from this class
+     * This example goes over what nullable types are
      */
     fun example() {
-        println("Null Safety examples")
+        println()
+        println("--- Start of Kotlin Null Safety examples ---")
         val neverNull: String = "This variable can never be null"
         println("NeverNull: $neverNull")
 
@@ -19,13 +21,18 @@ class NullSafety {
             return notNull?.length
         }
 
-        println("Inferred type of inferredNonNull: $inferredNonNull")
+        println("Inferred type of inferredNonNull: Nothing?")
         println("StrLength: ${strLength(inferredNonNull)}")
 
         // Below is playing around with calling this on class functions
         println("DescribeString(Nullable): ${this.describeString(nullable)}")
         println("DescribeString(neverNull): ${describeString(neverNull)}")
-        println("--- End of null safety examples ---")
+        try {
+            println("!! means assert non-null: ${nullable!!}")
+        } catch (e: Exception) {
+            println("Exception thrown for above: $e")
+        }
+        println("--- End of Kotlin Null Safety examples ---")
     }
 
     /**
