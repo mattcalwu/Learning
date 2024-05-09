@@ -4,4 +4,6 @@ fun main(args: Array<String>) {
     val nullSafety = KotlinNullSafety()
     nullSafety.example()
     KotlinClasses().example()
+    KotlinGenerics().example()
+    KotlinInheritance().example()
 }
