@@ -380,6 +380,8 @@ Review the basics of HTML forms by reading Mozilla's tutorial, Your first form
 
 #### 0.4: New note diagram
 
+Mermaid documentation: https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams
+ 
 Example mermaid syntax:
 
 ```mermaid
