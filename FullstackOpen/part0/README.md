@@ -1,4 +1,31 @@
 # README.md
+ 
+# Contents
+
+- [README.md](#readmemd)
+  - [Notes](#notes)
+    - [Fundamentals of Web Apps](#fundamentals-of-web-apps)
+      - [HTTP Get](#http-get)
+      - [Traditional web applications](#traditional-web-applications)
+      - [Running the app logic in the Browser](#running-the-app-logic-in-the-browser)
+      - [Event Handlers and Callback functions](#event-handlers-and-callback-functions)
+      - [Document Object Model, or DOM](#document-object-model-or-dom)
+      - [Manipulating the DOM from console](#manipulating-the-dom-from-console)
+      - [CSS](#css)
+      - [Loading a page containing Javascript - review](#loading-a-page-containing-javascript---review)
+      - [Forms and HTTP POST](#forms-and-http-post)
+      - [AJAX](#ajax)
+      - [Single page app](#single-page-app)
+      - [JavaScript-Libraries](#javascript-libraries)
+      - [Full-stack web development](#full-stack-web-development)
+      - [JavaScript fatigue](#javascript-fatigue)
+    - [Exercises 0.1-0.6](#exercises-01-06)
+      - [0.1 HTML](#01-html)
+      - [0.2 CSS](#02-css)
+      - [0.3 HTML forms](#03-html-forms)
+      - [0.4: New note diagram](#04-new-note-diagram)
+      - [0.5: Single page app diagram](#05-single-page-app-diagram)
+      - [0.6: New note in Single page app diagram](#06-new-note-in-single-page-app-diagram)
 
 ## Notes
 
@@ -73,7 +100,7 @@ After fetching the script tag, the browser begins to execute the code.
 
 #### Event Handlers and Callback functions
 
-```
+```javascript
 var xhttp = new XMLHttpRequest()
 
 // Why is the logic to handle the request here?
@@ -169,7 +196,7 @@ Server    -> [{"content": "HTML is easy", "date": "2012-1-1"},..]
 
 The notes page has a form element.
 
-```
+```html
 <form action="/exampleapp/new_note" method="POST">
   <input type="text" name="note">
   <br>
@@ -194,7 +221,7 @@ form is done as an HTTP POST request to the address /exampleapp/new_note.
 
 Code on the server responsible for the POST request:
 
-```
+```javascript
 app.post('/new_note', (req, res) => {
   notes.push({
     content: req.body.note,
@@ -241,7 +268,7 @@ page fetched from the server.
 
 Example SPA here: https://studies.cs.helsinki.fi/exampleapp/spa
 
-```
+```html
 <form id="notes_form">
   <input type="text" name="note">
   <br>
@@ -255,7 +282,7 @@ When I submit the form, only, one request is made to the server.
 
 POST request to the address:
 
-```
+```json
 {
   content: "single page app does not reload the whole page",
   date: "2019-05-25T15:15:59.905Z"
@@ -266,7 +293,7 @@ Server responds with 201 created.
 
 SPA version of the app:
 
-```
+```javascript
 var form = document.getElementById('notes_form')
 form.onsubmit = function(e) {
   e.preventDefault()
@@ -294,7 +321,7 @@ new note to the server.
 
 The code for sending the note to the server is as follows:
 
-```
+```javascript
 var sendToServer = function(note) {
   var xhttpForPost = new XMLHttpRequest()
   // ...
@@ -350,4 +377,46 @@ Review the basics of CSS by reading the tutorial from Mozilla
 #### 0.3 HTML forms
 
 Review the basics of HTML forms by reading Mozilla's tutorial, Your first form
+
+#### 0.4: New note diagram
+
+Example mermaid syntax:
+
+```mermaid
+sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    activate server
+    server-->>browser: HTML document
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
+    server-->>browser: the css file
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    activate server
+    server-->>browser: the JavaScript file
+    deactivate server
+
+    Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server-->>browser: [{ "content": "HTML is easy", "date": "2023-1-1" }, ... ]
+    deactivate server
+
+    Note right of browser: The browser executes the callback function that renders the notes
+```
+
+
+#### 0.5: Single page app diagram
+
+
+
+#### 0.6: New note in Single page app diagram
+
 
