@@ -3,33 +3,42 @@
 # Contents
 
 - [README.md](#readmemd)
-  - [Notes](#notes)
-    - [Fundamentals of Web Apps](#fundamentals-of-web-apps)
-      - [HTTP Get](#http-get)
-      - [Traditional web applications](#traditional-web-applications)
-      - [Running the app logic in the Browser](#running-the-app-logic-in-the-browser)
-      - [Event Handlers and Callback functions](#event-handlers-and-callback-functions)
-      - [Document Object Model, or DOM](#document-object-model-or-dom)
-      - [Manipulating the DOM from console](#manipulating-the-dom-from-console)
-      - [CSS](#css)
-      - [Loading a page containing Javascript - review](#loading-a-page-containing-javascript---review)
-      - [Forms and HTTP POST](#forms-and-http-post)
-      - [AJAX](#ajax)
-      - [Single page app](#single-page-app)
-      - [JavaScript-Libraries](#javascript-libraries)
-      - [Full-stack web development](#full-stack-web-development)
-      - [JavaScript fatigue](#javascript-fatigue)
-    - [Exercises 0.1-0.6](#exercises-01-06)
-      - [0.1 HTML](#01-html)
-      - [0.2 CSS](#02-css)
-      - [0.3 HTML forms](#03-html-forms)
-      - [0.4: New note diagram](#04-new-note-diagram)
-      - [0.5: Single page app diagram](#05-single-page-app-diagram)
-      - [0.6: New note in Single page app diagram](#06-new-note-in-single-page-app-diagram)
+- [Notes](#notes)
+  - [Fundamentals of Web Apps](#fundamentals-of-web-apps)
+    - [HTTP Get](#http-get)
+    - [Traditional web applications](#traditional-web-applications)
+    - [Running the app logic in the Browser](#running-the-app-logic-in-the-browser)
+    - [Event Handlers and Callback functions](#event-handlers-and-callback-functions)
+    - [Document Object Model, or DOM](#document-object-model-or-dom)
+    - [Manipulating the DOM from console](#manipulating-the-dom-from-console)
+    - [CSS](#css)
+    - [Loading a page containing Javascript - review](#loading-a-page-containing-javascript---review)
+    - [Forms and HTTP POST](#forms-and-http-post)
+    - [AJAX](#ajax)
+    - [Single page app](#single-page-app)
+    - [JavaScript-Libraries](#javascript-libraries)
+    - [Full-stack web development](#full-stack-web-development)
+    - [JavaScript fatigue](#javascript-fatigue)
+- [Exercises 0.1-0.6](#exercises-01-06)
+  - [0.1 HTML](#01-html)
+    - [HTML Basics](#html-basics)
+      - [Anatomy of an HTML document](#anatomy-of-an-html-document)
+      - [Marking up text](#marking-up-text)
+      - [Links](#links)
+  - [0.2 CSS](#02-css)
+    - [CSS Basics](#css-basics)
+      - [What is CSS?](#what-is-css)
+        - [Anatomy of a CSS ruleset](#anatomy-of-a-css-ruleset)
+        - [Selecting multiple elements](#selecting-multiple-elements)
+        - [Different types of selectors](#different-types-of-selectors)
+  - [0.3 HTML forms](#03-html-forms)
+  - [0.4: New note diagram](#04-new-note-diagram)
+  - [0.5: Single page app diagram](#05-single-page-app-diagram)
+  - [0.6: New note in Single page app diagram](#06-new-note-in-single-page-app-diagram)
 
-## Notes
+# Notes
 
-### Fundamentals of Web Apps
+## Fundamentals of Web Apps
 
 Examining this page: https://studies.cs.helsinki.fi/exampleapp/
 
@@ -40,7 +49,7 @@ First rule of web development: Always keep the Developer Console open.
 In the network tab, there are options to disable caching, and hiding extension
 URLs.
 
-#### HTTP Get
+### HTTP Get
 
 The server and web browser communicate using HTTP protocol. 
 
@@ -71,7 +80,7 @@ Server  :: the png pic
 
 HTML page renders first before the image is fetched.
 
-#### Traditional web applications
+### Traditional web applications
 
 Traditional web apps are where browsers fetch html documents from a server.
 
@@ -86,7 +95,7 @@ Other notes on traditional web apps:
   server
 - Can create servers with Java Spring, Python Flask, or Ruby on Rails
 
-#### Running the app logic in the Browser
+### Running the app logic in the Browser
 
 Data for page stored at this address: https://studies.cs.helsinki.fi/exampleapp/data.json
 
@@ -98,7 +107,7 @@ match. This is because the head section of the HTML contains a script tag.
 
 After fetching the script tag, the browser begins to execute the code.
 
-#### Event Handlers and Callback functions
+### Event Handlers and Callback functions
 
 ```javascript
 var xhttp = new XMLHttpRequest()
@@ -125,7 +134,7 @@ Event handler functions are called callback functions. The runtime environment -
 the browser, invokes the function at an appropriate time when the event has
 occurred.
 
-#### Document Object Model, or DOM
+### Document Object Model, or DOM
 
 HTML pages can be thought of as implicit tree structures.
 
@@ -133,7 +142,7 @@ Document Object Model (DOM) is an Application Programming Interface (API) that
 enables programmatic modification on the element trees corresponding to web
 pages.
 
-#### Manipulating the DOM from console
+### Manipulating the DOM from console
 
 In Console:
 
@@ -149,7 +158,7 @@ newElement.textContent = 'Page manipulation from console is easy'
 list.appendChild(newElement)
 ```
 
-#### CSS
+### CSS
 
 Cascading Style Sheets, is a style sheet language used to determine the
 appearances of web pages.
@@ -179,7 +188,7 @@ This can be examined on the elements tab of the console. Also can be used to
 edit the CSS.
 
 
-#### Loading a page containing Javascript - review 
+### Loading a page containing Javascript - review
 
 Browser   -> GET <website>     -> Server
 Server    -> Returns HTML Doc  -> Browser
@@ -192,7 +201,7 @@ Browser   -> GET <data.json>   -> Server
 Server    -> [{"content": "HTML is easy", "date": "2012-1-1"},..]
 [Browser executes the callback function that renders the notes]
 
-#### Forms and HTTP POST
+### Forms and HTTP POST
 
 The notes page has a form element.
 
@@ -245,7 +254,7 @@ and the date which is the date and time the note was created.
 The server does not save new notes to a database, so new notes disappear when
 the server is restarted.
 
-#### AJAX 
+### AJAX
 
 This notes page follows an early-nineties style of web development and uses
 AJAX (Asynchronous JavaScript and XML).
@@ -260,7 +269,7 @@ data was fetched with the HTML code generated by the server.
 The Notes page uses AJAX to fetch the notes data, but submitting the form still
 is the traditional mechanism.
 
-#### Single page app
+### Single page app
 
 Single Page Applications (SPA) don't fetch all of their pages separately from
 the server like our sample application does. But instead comprise only one HTML
@@ -334,7 +343,7 @@ var sendToServer = function(note) {
 
 Link to the code is here: https://github.com/mluukkai/example_app
 
-#### JavaScript-Libraries
+### JavaScript-Libraries
 
 A popular javascript library: jQuery 
 
@@ -348,7 +357,7 @@ compatible, the community wasn't so happy.o
 The most popular tool for implementing browser-side logic is Facebook's React
 library. 
 
-#### Full-stack web development
+### Full-stack web development
 
 All web apps have at least two layers: the browser, being close to the end-user
 is the top layer. The server is the bottom layer.
@@ -360,25 +369,159 @@ Fullstack means:
 
 Frontend, backend, and the database.
 
-#### JavaScript fatigue
+### JavaScript fatigue
 
 Full-stack web development is exhausting. But we can figure away around it.
 
-### Exercises 0.1-0.6
+# Exercises 0.1-0.6
 
-#### 0.1 HTML
+## 0.1 HTML
 
 Review the basics of HTML by reading the tutorial from Mozilla
 
-#### 0.2 CSS
+### HTML Basics
+
+HTML - HyperText Markup Language
+
+HTML consists of a series of elements which are used to enclose or wrap
+different parts of the content. 
+
+```html
+<p class="editor-note">My cat is very grumpy</p>
+```
+Attributes contain extra information about the element. 
+
+Class is the attribute name and "editor-note" is the attribute value.
+
+Some attributes, like `required` have no value.
+
+Some elements can be void, like `<img>`
+
+```html
+<img src="images/firefox-icon.png" alt="My test image" />
+```
+
+#### Anatomy of an HTML document
+
+```html
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>My test page</title>
+  </head>
+  <body>
+    <img src="images/firefox-icon.png" alt="My test image" />
+  </body>
+</html>
+```
+
+- `<!DOCTYPE html>` - Requited preamble. They don't do much now 
+- `<html></html>` - Wraps all the content on the entire page. Sometimes referred
+  to as the root element
+- `<head></head>` - This element is the container for the things you want to
+  include on the page that isn't the content you are showing. Keywords, page
+  description, character set declarations, etc.
+- `<meta charset="utf-8">` - Sets the charset the doc uses to UTF-8
+- `<meta charset="utf-8">` - This element ensures the page renders at the width
+  of the viewport, prevents mobile browsers from rendering pages wider than the
+  viewport and then shrinking them down.
+- `<title></title>` - Sets the title of your page. This is what the browser tab
+  loads
+- `<body></body>` - This contains all the content that you want to show
+
+#### Marking up text
+
+```html
+<!-- 4 heading levels: -->
+<h1>My main title</h1>
+<h2>My top level heading</h2>
+<h3>My subheading</h3>
+<h4>My sub-subheading</h4>
+```
+
+There are 6 heading levels. Also `<!-- ... -->` is an HTML comment.
+
+#### Links
+
+`<a href="link">text to display</a>` 
+
+A is for anchor. 
+
+## 0.2 CSS
 
 Review the basics of CSS by reading the tutorial from Mozilla
 
-#### 0.3 HTML forms
+### CSS Basics
+
+CSS - Cascading Style Sheets
+
+#### What is CSS?
+
+CSS is a style sheet language
+
+To import it, you need to add this between the `<head></head>`
+
+```HTML
+<link href="styles/styles.css" rel="stylesheet" />
+```
+
+##### Anatomy of a CSS ruleset
+
+```css
+p {
+  color: red;
+}
+```
+
+The whole structure is a ruleset/rule.
+
+Selector: The HTML element name at the start of the ruleset. 
+
+Declaration: The single rule like `color: red;`
+
+Properties: Ways you can style an HTML element, like `color`
+
+Property Value: Right of the property.
+
+Other information
+
+- Each ruleset must be wrapped in curly braces
+- Within each declaration you must use a colon to separate the property from its
+  value or values
+- Within each ruleset, you must use a semicolon to separate each declaration
+  from the next one
+
+##### Selecting multiple elements
+
+```css
+p,
+li,
+h1 {
+  color: red;
+}
+```
+##### Different types of selectors
+
+There can be different types of selectors too.
+
+- Element selector: Selects all html elements 
+- ID selector: Element on the page with specified id (each id should be unique)
+- Class selector: Element on the page with the specified class
+- Attribute selector: Elements with the specified attributes
+- Pseudo-class selector: Specific element but only when in the specified state
+
+#### Fonts and text
+
+
+
+
+## 0.3 HTML forms
 
 Review the basics of HTML forms by reading Mozilla's tutorial, Your first form
 
-#### 0.4: New note diagram
+## 0.4: New note diagram
 
 Mermaid documentation: https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams
  
@@ -415,10 +558,10 @@ sequenceDiagram
 ```
 
 
-#### 0.5: Single page app diagram
+## 0.5: Single page app diagram
 
 
 
-#### 0.6: New note in Single page app diagram
+## 0.6: New note in Single page app diagram
 
 
