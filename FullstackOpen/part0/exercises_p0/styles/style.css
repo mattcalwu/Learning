@@ -1,0 +1,35 @@
+html {
+  background-color: #00539f; /* This is a blue background */
+  font-size: 10px;
+  font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+  margin: 0; /* removes the horrible gap at the top */
+  padding: 20px 0; /* top and bottom padding to 20, right and left to 0 */
+  color: #00539f; /* Setting the text to be the same as the background color */
+  text-shadow: 3px 3px 1px black; /* First is horizontal offset, second is vertical offset,
+  third sets the blur radius of the shadow, and the fourth value sets the base color */
+  font-size: 60px;
+  text-align: center;
+}
+p, li {
+  font-size: 16px;
+  line-height: 2;
+  letter-spacing: 1px;
+} 
+
+body {
+  width: 600px; /* forces the body to be 600px wide */
+  margin: 0 auto; /* first value of margin and padding are top and bottom second
+  is left & right. Auto evenly divides right and left space */
+  background-color: #ff9500; /* sets the element's background color */
+  padding: 0 20px 20px 20px; /* No padding on the top, but some on the sides */
+  border: 5px solid black; /* 5px wide solid black border on all sides */
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  width: 600px; /* used to size the image properly */
+}

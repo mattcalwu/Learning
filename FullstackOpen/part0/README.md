@@ -514,12 +514,40 @@ There can be different types of selectors too.
 
 #### Fonts and text
 
+Look at styles/style.css
 
+#### CSS: all about boxes
 
+CSS Layout is based on the box model:
+- `padding`: The space around the content
+- `border`: The solid line that is just outside the padding
+- `margin`: The space outside of the border
+
+There are other things related like:
+- `width`: of an element
+- `background-color`: the color behind an element's content and padding
+- `color`: the color of an element's content (usually text)
+- `text-shadow`: sets a drop shadow on the text inside an element
+- `display`: sets the display mode of an element
+
+#### Centering the image
+
+`<body>` is a block element. It takes up space on the page. The margin applied
+to a block element will be respected by other elements on the page. In contrast,
+images are inline elements. In order for auto margin to work, we must give it a
+block-level behavior using `display: block;`.
 
 ## 0.3 HTML forms
 
 Review the basics of HTML forms by reading Mozilla's tutorial, Your first form
+
+### Your first form
+
+#### What are web forms?
+
+Web forms are one of the main points of interaction between a user and a website
+or application. 
+
 
 ## 0.4: New note diagram
 
