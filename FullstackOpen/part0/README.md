@@ -548,7 +548,6 @@ Review the basics of HTML forms by reading Mozilla's tutorial, Your first form
 Web forms are one of the main points of interaction between a user and a website
 or application. 
 
-
 ## 0.4: New note diagram
 
 Mermaid documentation: https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams
@@ -585,6 +584,35 @@ sequenceDiagram
     Note right of browser: The browser executes the callback function that renders the notes
 ```
 
+Create a similar diagram depicting the situation where the user creates a new
+note on the page https://studies.cs.helsinki.fi/exampleapp/notes by writing
+something into the text field and clicking the save button.
+
+```mermaid
+sequenceDiagram
+  participant browser
+  participant server
+  
+  browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+  activate server
+  server->>browser: 302 Location: /notes
+  deactivate server
+  
+  browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+  activate server
+  server-->>browser: HTML document
+  deactivate server
+
+  browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+  activate server
+  server-->>browser: the css file
+  deactivate server
+
+  browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+  activate server
+  server-->>browser: the JavaScript file
+  deactivate server
+```
 
 ## 0.5: Single page app diagram
 
