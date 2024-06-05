@@ -1,3 +1,20 @@
+# Contents
+
+- [Content](#content)
+- [README.md](#readmemd)
+  - [Introduction to React](#introduction-to-react)
+    - [Component](#component)
+    - [JSX](#jsx)
+    - [Multiple Components](#multiple-components)
+    - [Props: passing data to components](#props-passing-data-to-components)
+    - [Possible Error Message](#possible-error-message)
+    - [Some notes](#some-notes)
+    - [Do not render objects](#do-not-render-objects)
+    - [Exercises 1.1-1.2](#exercises-11-12)
+      - [1.1 Course Information, step 1](#11-course-information-step-1)
+      - [1.2](#12)
+  - [JavaScript](#javascript)
+
 # README.md
 
 ## Introduction to React
@@ -54,7 +71,6 @@ JavaScript XML, looks like HTML markup, however it is not that.
 Under the hood, JSX actually is compiled into JavaScript and looks like this:
 
 ```javascript
-
 const App = () => {
   const now = new Date()
   const a = 10
@@ -79,7 +95,7 @@ The reason why it is XML, is because every tag needs to be closed.
 
 ### Multiple Components
 
-```jsx
+```javascript
 const Hello = () => {
   return (
     <div>
@@ -112,7 +128,7 @@ component App is not exactly the root.
 
 ### Props: passing data to components
 
-```jsx
+```javascript
 const Hello = (props) => {
   return (
     <div>
@@ -125,7 +141,7 @@ const Hello = (props) => {
 This parameter props, now allows the component to recieve and object as an
 argument. These are defined as below.
 
-```jsx
+```javascript
 const App = () => {
   return (
       <div>
@@ -179,4 +195,125 @@ module.exports = {
 
 ### Some notes
 
+React has been configured to generate quite clear error messages. Despite this,
+you should, at least in the beginning, advance in very small steps.
 
+The First letter of React component names must be capitalized. 
+
+Also, the content of a React component (usually) needs to contain one root
+element. Or an array of components works as well. There are such things as
+fragments too. 
+
+```javascript
+const App = () => {
+  const name = 'Peter'
+  const age = 10
+  
+  return (
+    <>
+      <h1>Greetings</h1>
+      <Hello name='Maya' age={26+10} />
+      <Hello name={name} age={age} />
+      <Footer />
+    </>
+    )
+}
+```
+
+### Do not render objects
+
+```javascript
+const App = () => {
+  const friends = [
+    { name: 'Peter', age: 4 },
+    { name: 'Maya', age: 10 },
+  ]
+  
+  return (
+    <div>
+      <p>{friends[0]}</p>
+      <p>{friends[1]}</p>
+    </div>
+  )
+}
+
+export default App
+```
+
+Objects are not valid as a React child. 
+
+Individual things rendered in braces must be primitive values such as numbers or
+strings. 
+
+The fix is this:
+
+```javascript
+const App = () => {
+  const friends = [
+    { name: 'Peter', age: 4 },
+    { name: 'Maya', age: 10 },
+  ]
+  
+  return (
+    <div>
+      <p>{friends[0].name} {friends[0].age</p>
+      <p>{friends[1].name} {friends[1].age</p>
+    </div>
+  )
+}
+
+export default App
+```
+
+Arrays can also be displayed if they contain values that React looks for. 
+
+### Exercises 1.1-1.2
+
+#### 1.1 Course Information, step 1
+
+Use Vite to initialize a new application. Modify main.jsx to match:
+
+```javascript
+import ReactDOM from 'react-dom/client'
+
+import App from './App'
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>)
+```
+
+App.jsx
+```javascript
+const App = () => {
+  const course = 'Half Stack application development'
+  const part1 = 'Fundamentals of React'
+  const exercises1 = 10
+  const part2 = 'Using props to pass data'
+  const exercises2 = 7
+  const part3 = 'State of a component'
+  const exercises3 = 14
+  
+  return (
+    <div>
+      <h1>{course}</h1>
+      <p>
+        {part1} {exercises1}
+      </p>
+      <p>
+        {part2} {exercises2}
+      </p>
+      <p>
+        {part3} {exercises3}
+      </p>
+      <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>
+    </div>
+    )
+}
+
+export default App
+```      
+#### 1.2
+
+Refactor the code so that the there are even more components. Look at
+CourseInfo Repo for 1.1-1.2
+
+## JavaScript
